@@ -1,4 +1,4 @@
-mage:
+image:
   file: .gitpod.Dockerfile
 vscode:
   extensions:
