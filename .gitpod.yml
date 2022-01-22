@@ -1,0 +1,8 @@
+mage:
+  file: .gitpod.Dockerfile
+vscode:
+  extensions:
+    - haskell.haskell
+    - AdaCore.ada
+    - slbtty.Lisp-Syntax
+    - mhutchie.git-graph
