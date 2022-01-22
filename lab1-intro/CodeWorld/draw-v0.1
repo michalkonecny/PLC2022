@@ -1,0 +1,15 @@
+program = activityOf(initial, event, view)
+
+initial(rs) = (0,0) -- initial marker position
+
+-- what to draw:
+view(x,y) =
+  translated(solidCircle(thickness), x, y)
+
+thickness = 1
+
+-- changes in response to events:
+event(_, PointerPress (x,y)) 
+  = (x,y)
+event(state, _any_event) 
+  = state

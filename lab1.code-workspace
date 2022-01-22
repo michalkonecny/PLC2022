@@ -1,0 +1,23 @@
+{
+	"folders": [
+    {
+      "path": "lab1-intro/lisp"
+    },
+    {
+      "path": "lab1-intro/haskell"
+    },
+    {
+      "path": "lab1-intro/CodeWorld"
+    },
+    {
+      "path": "lab1-intro/elm"
+    },
+    {
+      "path": "lab1-intro/ada"
+    },
+    {
+      "path": "lab1-intro/java"
+    }
+	],
+	"settings": {}
+}

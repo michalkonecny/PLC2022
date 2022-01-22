@@ -1,0 +1,19 @@
+program = activityOf(initial, event, view)
+
+initial(rs) = ((0,0), False) -- initial marker position, whether to follow mouse
+
+-- what to draw:
+view((x,y),_) =
+  translated(solidCircle(thickness), x, y)
+
+thickness = 1
+
+-- changes in response to events:
+event((_, True), PointerMovement (x,y)) 
+  = ((x,y), True)
+event(_, PointerPress (x,y)) 
+  = ((x,y), True)
+event(_, PointerRelease (x,y)) 
+  = ((x,y), False)
+event(state, _any_event) 
+  = state

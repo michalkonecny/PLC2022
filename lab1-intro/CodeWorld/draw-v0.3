@@ -1,0 +1,21 @@
+program = activityOf(initial, event, view)
+
+initial(rs) = ([], False) -- initial list of positions, whether to follow mouse
+
+-- what to draw:
+view(positions,_) =
+  pictures([ dot(x,y) | (x,y) <- positions ])
+  where
+  dot(x,y) = translated(solidCircle(thickness), x, y)
+
+thickness = 0.1
+
+-- changes in response to events:
+event((positions, True), PointerMovement (x,y)) 
+  = ((x,y) : positions, True)
+event((positions, _), PointerPress(_))
+  = (positions, True)
+event((positions, _), PointerRelease(_)) 
+  = (positions, False)
+event(state, _any_event)
+  = state

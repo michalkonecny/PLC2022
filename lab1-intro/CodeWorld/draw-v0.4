@@ -1,0 +1,23 @@
+program = activityOf(initial, event, view)
+
+initial(rs) = ([], FollowOff) -- initial list of positions, whether to follow mouse
+
+data FollowState = FollowOn | FollowOff -- enum
+
+-- what to draw:
+view(positions,_) =
+  pictures([ dot(x,y) | (x,y) <- positions ])
+  where
+  dot(x,y) = translated(solidCircle(thickness), x, y)
+
+thickness = 0.1
+
+-- changes in response to events:
+event((positions, FollowOn), PointerMovement (x,y)) 
+  = ((x,y) : positions, FollowOn)
+event((positions, _), PointerPress(_))
+  = (positions, FollowOn)
+event((positions, _), PointerRelease(_)) 
+  = (positions, FollowOff)
+event(state, _any_event)
+  = state
