@@ -23,7 +23,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends build-essential ghc gnat clisp openjdk-11-jdk swi-prolog python g++ libghc-stm-dev golang-go 
+    && apt-get -y install --no-install-recommends build-essential gnat clisp openjdk-11-jdk swi-prolog python g++ golang-go 
+
+# Install GHC 8.10.7 using stack:
+RUN curl -sSL https://get.haskellstack.org/ | sh
+RUN stack setup --resolver lts-18.22
+RUN stack install stm
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
