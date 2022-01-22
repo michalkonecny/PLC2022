@@ -38,8 +38,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 RUN echo "bind '\"\e[A\"':history-search-backward" >> /root/.bashrc
 RUN echo "bind '\"\e[B\"':history-search-forward" >> /root/.bashrc
 
-RUN adduser plc
-USER plc
+# RUN adduser gitpod
+USER gitpod
 
 # Install GHC and HLS using ghcup:
 ENV BOOTSTRAP_HASKELL_NONINTERACTIVE=true
