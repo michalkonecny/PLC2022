@@ -29,7 +29,7 @@
 		"AdaCore.ada",
 		"golang.Go",
 		"mattn.lisp",
-		"haskell.haskell"
+		"dramforever.vscode-ghc-simple"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
