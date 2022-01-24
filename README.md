@@ -2,7 +2,8 @@
 
 ## Editing and running the code via a web browser
 
-- Please use [this link](https://gitpod.io/#https://github.com/michalkonecny/PLC2022).
+- Make an account on [gitpod.io](https://gitpod.io)
+- Open an IDE using [this link](https://gitpod.io/#https://github.com/michalkonecny/PLC2022).
 
 ## Editing and running the code on own computer via Docker
 
