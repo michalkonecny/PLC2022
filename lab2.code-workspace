@@ -1,0 +1,17 @@
+{
+	"folders": [
+    {
+      "path": "lab2-num/lisp"
+    },
+    {
+      "path": "lab2-num/java"
+    },
+    {
+      "path": "lab2-num/ada"
+    },
+    {
+      "path": "lab2-num/haskell"
+    }
+	],
+	"settings": {}
+}
