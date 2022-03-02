@@ -1,0 +1,20 @@
+{
+	"folders": [
+    {
+      "path": "lab6-rectypes/html"
+    },
+    {
+      "path": "lab6-rectypes/java"
+    },
+    {
+      "path": "lab6-rectypes/c"
+    },
+    {
+      "path": "lab6-rectypes/haskell"
+    },
+    {
+      "path": "lab6-rectypes/lisp"
+    }
+	],
+	"settings": {}
+}
