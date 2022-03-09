@@ -1,0 +1,23 @@
+{
+	"folders": [
+    {
+      "path": "lab7-vars/java"
+    },
+    {
+      "path": "lab7-vars/python"
+    },
+    {
+      "path": "lab7-vars/haskell"
+    },
+    {
+      "path": "lab7-vars/ada"
+    },
+    {
+      "path": "lab7-vars/lisp"
+    },
+    {
+      "path": "lab7-vars/c"
+    }
+	],
+	"settings": {}
+}
