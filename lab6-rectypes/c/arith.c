@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <malloc.h>
+#include <stdlib.h>
 
 // leaf node structures:
 typedef struct { int value; } ArithExpInt;
@@ -119,7 +119,7 @@ void incrementAllNumbers(ArithExp * expr)
     }
 }
 
-int main(char** argv, int argc)
+int main(int argc, char *argv[])
 {
     // construct the expression 2 * (3 + 0.5):
     ArithExp * exp1 = newTimes(newInt(2), newPlus(newInt(3), newDouble(0.5)));

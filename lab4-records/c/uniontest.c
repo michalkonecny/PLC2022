@@ -28,7 +28,7 @@ Date someday3 = { DMY, { 12, 1901 }}; // leaving one component unitialised
 
 
 
-int main(char** argv, int argc)
+int main(int argc, char *argv[])
 {
         
     printf("%d\n", someday3.content.dmyDate.y); // unsafe!!

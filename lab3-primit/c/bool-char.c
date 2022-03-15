@@ -24,7 +24,7 @@ int getNumber()
 }
 
 
-int main(char** argv, int argc)
+int main(int argc, char *argv[])
 {
     int n = getNumber();
 

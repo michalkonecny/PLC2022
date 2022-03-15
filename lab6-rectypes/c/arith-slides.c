@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <malloc.h>
+#include <stdlib.h>
 
 // leaf node structure:
 typedef struct { int n; } ExpNum;
@@ -70,7 +70,7 @@ Expression create_3_no_pointers(){
     return num3; 
 }
 
-int main(char** argv, int argc)
+int main(int argc, char *argv[])
 {
     // construct the expression plus(1, times(2, 3))
     // first, create the three leafs of the tree:

@@ -15,7 +15,7 @@ typedef person individual2;
 
 typedef int bint;
 
-int main(char** argv, int argc)
+int main(int argc, char *argv[])
 {
     
     person a_p = { 60, 45000};

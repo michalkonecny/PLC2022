@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <malloc.h>
+#include <stdlib.h>
 
 typedef enum {TABLE, TBODY, TR, TD } HTMLElement;
 
@@ -92,7 +92,7 @@ int countNodes(HTMLFragment * fragment)
 char rows1[2][4][4] =
      {{"X","X","O",0},{"O","B","X",0},{"O","B","B",0},0};
 
-int main(char** argv, int argc)
+int main(int argc, char *argv[])
 {
     int n = countNodes(makeTable(&rows1));
     printf("countNodes = %d\n", n);

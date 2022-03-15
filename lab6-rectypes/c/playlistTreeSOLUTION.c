@@ -34,7 +34,7 @@ typedef union
 {
     Piece piece;
     Advert advert;
-    PlayList sublist;
+    PlayList * sublist;
 } ItemUnion;
 
 typedef enum
@@ -54,12 +54,12 @@ typedef struct ITEM
 
 Item *newPiece(char *name, char *performer, float length)
 {
-    // TASK 6.3(a)
-
-
-
-
-
+    Item *result = malloc(sizeof(Item));
+    (*result).variant = PIECE;           // initialise discriminant
+    (*result).content.piece.name = name; // initialise content
+    (*result).content.piece.performer = performer;
+    (*result).content.piece.length = length;
+    return result;
 }
 
 Item *newAdvert(char *name, char *brand, float length)
@@ -72,15 +72,15 @@ Item *newAdvert(char *name, char *brand, float length)
     return result;
 }
 
-PlayList newPlayList(Item *items, int number_of_items)
+PlayList *newPlayList(Item *items, int number_of_items)
 {
-    PlayList result;
-    result.items = items;
-    result.number_of_items = number_of_items;
+    PlayList *result = malloc(sizeof(PlayList));
+    result->items = items;
+    result->number_of_items = number_of_items;
     return result;
 }
 
-Item *newSublist(PlayList sublist)
+Item *newSublist(PlayList * sublist)
 {
     Item *result = malloc(sizeof(Item));
     (*result).variant = SUBLIST; // initialise discriminant
@@ -90,13 +90,13 @@ Item *newSublist(PlayList sublist)
 
 // Counting items in a playlist (and recursively for its sub-playlists):
 
-int countItems(PlayList list)
+int countItems(PlayList * list)
 {
     int result = 0;
 
-    for (int i = 0; i < list.number_of_items; i++)
+    for (int i = 0; i < list->number_of_items; i++)
     {
-        Item *currentItem = list.items + i;
+        Item *currentItem = list->items + i;
         if ((*currentItem).variant == SUBLIST)
         {
             result = result + countItems((*currentItem).content.sublist);
@@ -110,7 +110,7 @@ int countItems(PlayList list)
     return result;
 }
 
-void printPlayList(PlayList playlist); // A declaration; full definition comes later
+void printPlayList(PlayList * playlist); // A declaration; full definition comes later
 
 void printItem(Item *item)
 {
@@ -137,16 +137,16 @@ void printItem(Item *item)
     }
 }
 
-void printPlayList(PlayList playlist)
+void printPlayList(PlayList * playlist)
 {
     printf("[");
-    for (int i = 0; i < playlist.number_of_items; i++)
+    for (int i = 0; i < playlist->number_of_items; i++)
     {
         if (i > 0)
         {
             printf(", ");
         }
-        printItem(playlist.items + i);
+        printItem(playlist->items + i);
     }
     printf("]");
 }
@@ -166,7 +166,7 @@ int main(int argc, char *argv[])
     items1[0] = *piece1;
     items1[1] = *piece2;
 
-    PlayList playList1 = newPlayList(items1, 2);
+    PlayList * playList1 = newPlayList(items1, 2);
 
     printf("playList1 = ");
     printPlayList(playList1);
@@ -180,7 +180,7 @@ int main(int argc, char *argv[])
     items2[1] = *advert1;
     items2[2] = *newSublist(playList1);
 
-    PlayList playList2 = newPlayList(items2, 3);
+    PlayList * playList2 = newPlayList(items2, 3);
 
     printf("\n");
     printf("playList2 = ");

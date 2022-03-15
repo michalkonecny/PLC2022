@@ -8,7 +8,7 @@ typedef struct { int d; Month m; int y; }  Date;
 Date someday = {  1, 1901 };
 
 
-int main(char** argv, int argc)
+int main(int argc, char *argv[])
 {
     
     printf("year = %d\n", someday.y);
