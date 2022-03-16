@@ -1,0 +1,20 @@
+{
+	"folders": [
+    {
+      "path": "lab8-subprg/java"
+    },
+    {
+      "path": "lab8-subprg/c++"
+    },
+    {
+      "path": "lab8-subprg/ada"
+    },
+    {
+      "path": "lab8-subprg/haskell"
+    },
+    {
+      "path": "lab8-subprg/python"
+    }
+	],
+	"settings": {}
+}
