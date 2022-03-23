@@ -1,0 +1,17 @@
+{
+	"folders": [
+    {
+      "path": "lab9-sync/java"
+    },
+    {
+      "path": "lab9-sync/ada"
+    },
+    {
+      "path": "lab9-sync/haskell"
+    },
+    {
+      "path": "lab9-sync/go"
+    }
+	],
+	"settings": {}
+}
