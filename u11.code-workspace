@@ -1,0 +1,18 @@
+{
+	"folders": [
+    {
+      "path": "u11-reliab/java"
+    },
+    {
+      "path": "u11-reliab/ada"
+    },
+    {
+      "path": "u11-reliab/spark2014"
+    }
+    },
+    {
+      "path": "u11-reliab/spark2005"
+    }
+	],
+	"settings": {}
+}

@@ -1,0 +1,432 @@
+          *******************************************************
+                      Semantic Analysis of SPARK Text
+       SPARK95 Examiner with VC and RTC Generator Release 7.3 / 01.06
+                           Demonstration Version
+          *******************************************************
+
+
+                       DATE : 21-MAR-2007 15:01:30.97
+
+                   procedure ArrayRemoveSpark.ArrayRemove
+
+
+
+
+For path(s) from start to run-time check associated with statement of line 14:
+
+procedure_arrayremove_1.
+H1:    pos >= arrayindex__first .
+H2:    pos <= arrayindex__last .
+H3:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H4:    pos >= integer__first .
+H5:    pos <= integer__last .
+H6:    arrayremovecount >= integer__first .
+H7:    arrayremovecount <= integer__last .
+        ->
+C1:    pos >= arrayindex__first .
+C2:    pos <= arrayindex__last .
+C3:    pos >= arrayindex__first .
+C4:    pos <= arrayindex__last .
+ 
+
+For path(s) from start to run-time check associated with statement of line 15:
+
+procedure_arrayremove_2.
+H1:    pos >= arrayindex__first .
+H2:    pos <= arrayindex__last .
+H3:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H4:    pos >= integer__first .
+H5:    pos <= integer__last .
+H6:    arrayremovecount >= integer__first .
+H7:    arrayremovecount <= integer__last .
+H8:    pos >= arrayindex__first .
+H9:    pos <= arrayindex__last .
+H10:   pos >= arrayindex__first .
+H11:   pos <= arrayindex__last .
+H12:   pos >= arrayindex__first .
+H13:   pos <= arrayindex__last .
+        ->
+C1:    element(a, [pos]) >= integer__first .
+C2:    element(a, [pos]) <= integer__last .
+C3:    pos >= arrayindex__first .
+C4:    pos <= arrayindex__last .
+ 
+
+For path(s) from start to assertion of line 19:
+
+procedure_arrayremove_3.
+H1:    pos >= arrayindex__first .
+H2:    pos <= arrayindex__last .
+H3:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H4:    pos >= integer__first .
+H5:    pos <= integer__last .
+H6:    arrayremovecount >= integer__first .
+H7:    arrayremovecount <= integer__last .
+H8:    pos >= arrayindex__first .
+H9:    pos <= arrayindex__last .
+H10:   pos >= arrayindex__first .
+H11:   pos <= arrayindex__last .
+H12:   pos >= arrayindex__first .
+H13:   pos <= arrayindex__last .
+H14:   element(a, [pos]) >= integer__first .
+H15:   element(a, [pos]) <= integer__last .
+H16:   pos >= arrayindex__first .
+H17:   pos <= arrayindex__last .
+        ->
+C1:    (arrayindex__first <= pos) or (element(a, [pos]) = element(
+           a, [pos + 1])) .
+C2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+C3:    pos >= integer__first .
+C4:    pos <= integer__last .
+C5:    arrayremovecount >= integer__first .
+C6:    arrayremovecount <= integer__last .
+C7:    pos >= arrayindex__first .
+C8:    pos <= arrayindex__last .
+C9:    arrayindex__first >= arrayindex__first .
+C10:   arrayindex__first <= arrayindex__last .
+C11:   arrayindex__first <= arrayindex__last .
+ 
+
+For path(s) from assertion of line 19 to assertion of line 19:
+
+procedure_arrayremove_4.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   loop__1__i > ix .
+H15:   loop__1__i < arrayindex__last .
+H16:   element(a, [loop__1__i + 1]) >= integer__first .
+H17:   element(a, [loop__1__i + 1]) <= integer__last .
+H18:   loop__1__i + 1 >= arrayindex__first .
+H19:   loop__1__i + 1 <= arrayindex__last .
+H20:   loop__1__i + 1 >= arrayindex__base__first .
+H21:   loop__1__i + 1 <= arrayindex__base__last .
+H22:   loop__1__i >= arrayindex__first .
+H23:   loop__1__i <= arrayindex__last .
+H24:   not (loop__1__i = arrayindex__last) .
+        ->
+C1:    (loop__1__i + 1 <= pos) or (element(update(a, [
+           loop__1__i], element(a, [loop__1__i + 1])), [pos]) = element(
+           a~, [pos + 1])) .
+C2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(update(
+           a, [loop__1__i], element(a, [loop__1__i + 1])), [
+           i___1]) >= integer__first) and (element(update(a, [
+           loop__1__i], element(a, [loop__1__i + 1])), [
+           i___1]) <= integer__last))) .
+C3:    pos >= integer__first .
+C4:    pos <= integer__last .
+C5:    arrayremovecount >= integer__first .
+C6:    arrayremovecount <= integer__last .
+C7:    pos >= arrayindex__first .
+C8:    pos <= arrayindex__last .
+C9:    loop__1__i + 1 >= arrayindex__first .
+C10:   loop__1__i + 1 <= arrayindex__last .
+C11:   loop__1__i + 1 <= arrayindex__last .
+ 
+
+procedure_arrayremove_5.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   not ((loop__1__i > ix) and (loop__1__i < arrayindex__last)) .
+H15:   not (loop__1__i = arrayindex__last) .
+        ->
+C1:    (loop__1__i + 1 <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+C2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+C3:    pos >= integer__first .
+C4:    pos <= integer__last .
+C5:    arrayremovecount >= integer__first .
+C6:    arrayremovecount <= integer__last .
+C7:    pos >= arrayindex__first .
+C8:    pos <= arrayindex__last .
+C9:    loop__1__i + 1 >= arrayindex__first .
+C10:   loop__1__i + 1 <= arrayindex__last .
+C11:   loop__1__i + 1 <= arrayindex__last .
+ 
+
+For path(s) from assertion of line 19 to run-time check associated with statement of line 23:
+
+procedure_arrayremove_6.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   loop__1__i > ix .
+H15:   loop__1__i < arrayindex__last .
+        ->
+C1:    element(a, [loop__1__i + 1]) >= integer__first .
+C2:    element(a, [loop__1__i + 1]) <= integer__last .
+C3:    loop__1__i + 1 >= arrayindex__first .
+C4:    loop__1__i + 1 <= arrayindex__last .
+C5:    loop__1__i + 1 >= arrayindex__base__first .
+C6:    loop__1__i + 1 <= arrayindex__base__last .
+C7:    loop__1__i >= arrayindex__first .
+C8:    loop__1__i <= arrayindex__last .
+ 
+
+For path(s) from assertion of line 19 to run-time check associated with statement of line 27:
+
+procedure_arrayremove_7.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   loop__1__i > ix .
+H15:   loop__1__i < arrayindex__last .
+H16:   element(a, [loop__1__i + 1]) >= integer__first .
+H17:   element(a, [loop__1__i + 1]) <= integer__last .
+H18:   loop__1__i + 1 >= arrayindex__first .
+H19:   loop__1__i + 1 <= arrayindex__last .
+H20:   loop__1__i + 1 >= arrayindex__base__first .
+H21:   loop__1__i + 1 <= arrayindex__base__last .
+H22:   loop__1__i >= arrayindex__first .
+H23:   loop__1__i <= arrayindex__last .
+H24:   loop__1__i = arrayindex__last .
+        ->
+C1:    0 >= integer__first .
+C2:    0 <= integer__last .
+C3:    arrayindex__last >= arrayindex__first .
+C4:    arrayindex__last <= arrayindex__last .
+ 
+
+procedure_arrayremove_8.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   not ((loop__1__i > ix) and (loop__1__i < arrayindex__last)) .
+H15:   loop__1__i = arrayindex__last .
+        ->
+C1:    0 >= integer__first .
+C2:    0 <= integer__last .
+C3:    arrayindex__last >= arrayindex__first .
+C4:    arrayindex__last <= arrayindex__last .
+ 
+
+For path(s) from assertion of line 19 to run-time check associated with statement of line 29:
+
+procedure_arrayremove_9.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   loop__1__i > ix .
+H15:   loop__1__i < arrayindex__last .
+H16:   element(a, [loop__1__i + 1]) >= integer__first .
+H17:   element(a, [loop__1__i + 1]) <= integer__last .
+H18:   loop__1__i + 1 >= arrayindex__first .
+H19:   loop__1__i + 1 <= arrayindex__last .
+H20:   loop__1__i + 1 >= arrayindex__base__first .
+H21:   loop__1__i + 1 <= arrayindex__base__last .
+H22:   loop__1__i >= arrayindex__first .
+H23:   loop__1__i <= arrayindex__last .
+H24:   loop__1__i = arrayindex__last .
+H25:   0 >= integer__first .
+H26:   0 <= integer__last .
+H27:   arrayindex__last >= arrayindex__first .
+H28:   arrayindex__last <= arrayindex__last .
+        ->
+C1:    arrayremovecount + 1 >= integer__first .
+C2:    arrayremovecount + 1 <= integer__last .
+ 
+
+procedure_arrayremove_10.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   not ((loop__1__i > ix) and (loop__1__i < arrayindex__last)) .
+H15:   loop__1__i = arrayindex__last .
+H16:   0 >= integer__first .
+H17:   0 <= integer__last .
+H18:   arrayindex__last >= arrayindex__first .
+H19:   arrayindex__last <= arrayindex__last .
+        ->
+C1:    arrayremovecount + 1 >= integer__first .
+C2:    arrayremovecount + 1 <= integer__last .
+ 
+
+For path(s) from assertion of line 19 to finish:
+
+procedure_arrayremove_11.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   loop__1__i > ix .
+H15:   loop__1__i < arrayindex__last .
+H16:   element(a, [loop__1__i + 1]) >= integer__first .
+H17:   element(a, [loop__1__i + 1]) <= integer__last .
+H18:   loop__1__i + 1 >= arrayindex__first .
+H19:   loop__1__i + 1 <= arrayindex__last .
+H20:   loop__1__i + 1 >= arrayindex__base__first .
+H21:   loop__1__i + 1 <= arrayindex__base__last .
+H22:   loop__1__i >= arrayindex__first .
+H23:   loop__1__i <= arrayindex__last .
+H24:   loop__1__i = arrayindex__last .
+H25:   0 >= integer__first .
+H26:   0 <= integer__last .
+H27:   arrayindex__last >= arrayindex__first .
+H28:   arrayindex__last <= arrayindex__last .
+H29:   arrayremovecount + 1 >= integer__first .
+H30:   arrayremovecount + 1 <= integer__last .
+        ->
+C1:    (arrayindex__last <= pos) or (element(update(update(
+           a, [loop__1__i], element(a, [loop__1__i + 1])), [
+           arrayindex__last], 0), [pos]) = element(a~, [pos + 1])) .
+ 
+
+procedure_arrayremove_12.
+H1:    (loop__1__i <= pos) or (element(a, [pos]) = element(
+           a~, [pos + 1])) .
+H2:    for_all(i___1: arrayindex, ((i___1 >= arrayindex__first) and (
+           i___1 <= arrayindex__last)) -> ((element(a, [
+           i___1]) >= integer__first) and (element(a, [
+           i___1]) <= integer__last))) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= arrayindex__first .
+H8:    pos <= arrayindex__last .
+H9:    loop__1__i >= arrayindex__first .
+H10:   loop__1__i <= arrayindex__last .
+H11:   loop__1__i <= arrayindex__last .
+H12:   ix >= arrayindex__first .
+H13:   ix <= arrayindex__last .
+H14:   not ((loop__1__i > ix) and (loop__1__i < arrayindex__last)) .
+H15:   loop__1__i = arrayindex__last .
+H16:   0 >= integer__first .
+H17:   0 <= integer__last .
+H18:   arrayindex__last >= arrayindex__first .
+H19:   arrayindex__last <= arrayindex__last .
+H20:   arrayremovecount + 1 >= integer__first .
+H21:   arrayremovecount + 1 <= integer__last .
+        ->
+C1:    (arrayindex__last <= pos) or (element(update(a, [
+           arrayindex__last], 0), [pos]) = element(a~, [pos + 1])) .
+ 
+

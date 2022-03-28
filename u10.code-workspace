@@ -1,0 +1,14 @@
+{
+	"folders": [
+    {
+      "path": "u10-modules/java"
+    },
+    {
+      "path": "u10-modules/ada"
+    },
+    {
+      "path": "u10-modules/c++"
+    }
+	],
+	"settings": {}
+}

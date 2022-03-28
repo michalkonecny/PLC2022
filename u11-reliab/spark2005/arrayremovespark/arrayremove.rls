@@ -1,0 +1,30 @@
+          /*********************************************************/
+                          /*Proof Rule Declarations*/
+       /*SPARK95 Examiner with VC and RTC Generator Release 7.3 / 01.06*/
+                           /*Demonstration Version*/
+          /*********************************************************/
+
+
+                       /*DATE : 21-MAR-2007 15:01:30.97*/
+
+                   /*procedure ArrayRemoveSpark.ArrayRemove*/
+
+
+rule_family arrayremove_rules:
+     X      requires [X:any] &
+     X <= Y requires [X:ire, Y:ire] &
+     X >= Y requires [X:ire, Y:ire].
+
+arrayremove_rules(1): character__pos(X) may_be_replaced_by X.
+arrayremove_rules(2): character__val(X) may_be_replaced_by X.
+arrayremove_rules(3): integer__size >= 0 may_be_deduced.
+arrayremove_rules(4): integer__first <= integer__last may_be_deduced.
+arrayremove_rules(5): integer__base__first <= integer__base__last may_be_deduced.
+arrayremove_rules(6): integer__base__first <= integer__first may_be_deduced.
+arrayremove_rules(7): integer__base__last >= integer__last may_be_deduced.
+arrayremove_rules(8): arrayindex__size >= 0 may_be_deduced.
+arrayremove_rules(9): arrayindex__first may_be_replaced_by 0.
+arrayremove_rules(10): arrayindex__last may_be_replaced_by 3.
+arrayremove_rules(11): arrayindex__base__first <= arrayindex__base__last may_be_deduced.
+arrayremove_rules(12): arrayindex__base__first <= arrayindex__first may_be_deduced.
+arrayremove_rules(13): arrayindex__base__last >= arrayindex__last may_be_deduced.

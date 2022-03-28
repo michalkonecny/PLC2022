@@ -1,0 +1,32 @@
+          {*******************************************************}
+                              {FDL Declarations}
+       {SPARK95 Examiner with VC and RTC Generator Release 7.3 / 01.06}
+                           {Demonstration Version}
+          {*******************************************************}
+
+
+                       {DATE : 21-MAR-2007 15:01:30.97}
+
+                   {procedure ArrayRemoveSpark.ArrayRemove}
+
+
+title procedure arrayremove;
+
+  function round__(real) : integer;
+  type arrayindex = integer;
+  type intarray = array [integer] of integer;
+  const arrayindex__base__last : integer = pending; 
+  const arrayindex__base__first : integer = pending; 
+  const arrayindex__size : integer = pending; 
+  const arrayindex__last : integer = pending; 
+  const arrayindex__first : integer = pending; 
+  const integer__size : integer = pending; 
+  const integer__last : integer = pending; 
+  const integer__first : integer = pending; 
+  var arrayremovecount : integer;
+  var a : intarray;
+  var pos : integer;
+  var ix : integer;
+  var loop__1__i : integer;
+
+end;

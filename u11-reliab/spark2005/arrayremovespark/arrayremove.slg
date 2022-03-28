@@ -1,0 +1,598 @@
+              ****************************************************
+              LOG OF SIMPLIFICATIONS PERFORMED BY SPADE SIMPLIFIER
+                          PVL SPADE TOOL DEMO VERSION
+              ****************************************************
+
+                       DATE : 21-MAR-2007 TIME : 15:04:29
+
+
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_1.  @@@@@@@@@@
+%%%  Simplified H3 on reading formula in, to give:
+     %%%  H3:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+***  Proved C1:  pos >= arrayindex__first
+     using hypothesis H1.
+***  Proved C2:  pos <= arrayindex__last
+     using hypothesis H2.
+***  Proved C3:  pos >= arrayindex__first
+     using hypothesis H1.
+***  Proved C4:  pos <= arrayindex__last
+     using hypothesis H2.
+***  PROVED VC.
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_2.  @@@@@@@@@@
+%%%  Simplified H3 on reading formula in, to give:
+     %%%  H3:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H8 has been replaced by "true".  (It is already present, as H1).
+---  Hypothesis H9 has been replaced by "true".  (It is already present, as H2).
+---  Hypothesis H10 has been replaced by "true".  (It is already present, as H1)
+          .
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as H2)
+          .
+---  Hypothesis H12 has been replaced by "true".  (It is already present, as H1)
+          .
+---  Hypothesis H13 has been replaced by "true".  (It is already present, as H2)
+          .
+***  Proved C1:  element(a, [pos]) >= integer__first
+     using hypotheses H1, H2 & H3.
+***  Proved C2:  element(a, [pos]) <= integer__last
+     using hypotheses H1, H2 & H3.
+***  Proved C3:  pos >= arrayindex__first
+     using hypothesis H1.
+***  Proved C4:  pos <= arrayindex__last
+     using hypothesis H2.
+***  PROVED VC.
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_3.  @@@@@@@@@@
+%%%  Simplified H3 on reading formula in, to give:
+     %%%  H3:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H8 has been replaced by "true".  (It is already present, as H1).
+---  Hypothesis H9 has been replaced by "true".  (It is already present, as H2).
+---  Hypothesis H10 has been replaced by "true".  (It is already present, as H1)
+          .
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as H2)
+          .
+---  Hypothesis H12 has been replaced by "true".  (It is already present, as H1)
+          .
+---  Hypothesis H13 has been replaced by "true".  (It is already present, as H2)
+          .
+---  Hypothesis H16 has been replaced by "true".  (It is already present, as H1)
+          .
+---  Hypothesis H17 has been replaced by "true".  (It is already present, as H2)
+          .
+%%%  Simplified C2 on reading formula in, to give:
+     %%%  C2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+%%%  Simplified C9 on reading formula in, to give:
+     %%%  C9:  true
+***  Proved C1:  arrayindex__first <= pos or element(a, [pos]) = element(a, [
+          pos + 1])
+     using hypothesis H1.
+***  Proved C2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and 
+          i___1 <= arrayindex__last -> integer__first <= element(a, [i___1]) 
+          and element(a, [i___1]) <= integer__last)
+     using hypothesis H3.
+***  Proved C3:  pos >= integer__first
+     using hypothesis H4.
+***  Proved C4:  pos <= integer__last
+     using hypothesis H5.
+***  Proved C5:  arrayremovecount >= integer__first
+     using hypothesis H6.
+***  Proved C6:  arrayremovecount <= integer__last
+     using hypothesis H7.
+***  Proved C7:  pos >= arrayindex__first
+     using hypothesis H1.
+***  Proved C8:  pos <= arrayindex__last
+     using hypothesis H2.
+***  Proved C9:  true
+***  Proved C10:  arrayindex__first <= arrayindex__last
+     using hypotheses H1 & H2.
+***  Proved C11:  arrayindex__first <= arrayindex__last
+     using hypotheses H1 & H2.
+***  PROVED VC.
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_4.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+---  Hypothesis H22 has been replaced by "true".  (It is already present, as H9)
+          .
+---  Hypothesis H23 has been replaced by "true".  (It is already present, as 
+          H10).
+%%%  Simplified C1 on reading formula in, to give:
+     %%%  C1:  loop__1__i + 1 <= pos or element(update(a, [loop__1__i], element(
+          a, [loop__1__i + 1])), [pos]) = element(a~, [pos + 1])
+%%%  Simplified C2 on reading formula in, to give:
+     %%%  C2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(update(a, [
+          loop__1__i], element(a, [loop__1__i + 1])), [i___1]) and element(
+          update(a, [loop__1__i], element(a, [loop__1__i + 1])), [i___1]) <= 
+          integer__last)
+***  Proved C2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and 
+          i___1 <= arrayindex__last -> integer__first <= element(update(a, [
+          loop__1__i], element(a, [loop__1__i + 1])), [i___1]) and element(
+          update(a, [loop__1__i], element(a, [loop__1__i + 1])), [i___1]) <= 
+          integer__last)
+     using hypotheses H2, H9, H10, H16 & H17.
+***  Proved C3:  pos >= integer__first
+     using hypothesis H3.
+***  Proved C4:  pos <= integer__last
+     using hypothesis H4.
+***  Proved C5:  arrayremovecount >= integer__first
+     using hypothesis H5.
+***  Proved C6:  arrayremovecount <= integer__last
+     using hypothesis H6.
+***  Proved C7:  pos >= arrayindex__first
+     using hypothesis H7.
+***  Proved C8:  pos <= arrayindex__last
+     using hypothesis H8.
+***  Proved C9:  loop__1__i + 1 >= arrayindex__first
+     using hypothesis H18.
+***  Proved C10:  loop__1__i + 1 <= arrayindex__last
+     using hypothesis H19.
+***  Proved C11:  loop__1__i + 1 <= arrayindex__last
+     using hypothesis H19.
+>>>  Restructured hypothesis H24 into:
+     >>>  H24:  loop__1__i <> arrayindex__last
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 
+          arrayindex__last -> integer__first <= element(a, [i___1]) and element(
+          a, [i___1]) <= integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+<S>  New H18:  loop__1__i >= - 1
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H15:  loop__1__i < 3
+<S>  New H19:  loop__1__i <= 2
+<S>  New H24:  loop__1__i <> 3
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+%%%  Hypotheses H10 & H24 together imply that
+          loop__1__i < 3.
+     H10 & H24 have therefore been deleted and a new H10 added to this effect.
+---  Eliminated hypothesis H11 (true-hypothesis).
+---  Eliminated hypothesis H22 (true-hypothesis).
+---  Eliminated hypothesis H23 (true-hypothesis).
+---  Eliminated hypothesis H15 (duplicate of H10).
+---  Eliminated hypothesis H19 (duplicate of H10).
+---  Eliminated hypothesis H9 (redundant, given H12 & H14).
+---  Eliminated hypothesis H13 (redundant, given H10 & H14).
+---  Eliminated hypothesis H18 (redundant, given H12 & H14).
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_5.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+%%%  Simplified C1 on reading formula in, to give:
+     %%%  C1:  loop__1__i + 1 <= pos or element(a, [pos]) = element(a~, [pos + 
+          1])
+%%%  Simplified C2 on reading formula in, to give:
+     %%%  C2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+***  Proved C2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and 
+          i___1 <= arrayindex__last -> integer__first <= element(a, [i___1]) 
+          and element(a, [i___1]) <= integer__last)
+     using hypothesis H2.
+***  Proved C3:  pos >= integer__first
+     using hypothesis H3.
+***  Proved C4:  pos <= integer__last
+     using hypothesis H4.
+***  Proved C5:  arrayremovecount >= integer__first
+     using hypothesis H5.
+***  Proved C6:  arrayremovecount <= integer__last
+     using hypothesis H6.
+***  Proved C7:  pos >= arrayindex__first
+     using hypothesis H7.
+***  Proved C8:  pos <= arrayindex__last
+     using hypothesis H8.
+***  Proved C9:  loop__1__i + 1 >= arrayindex__first
+     using hypothesis H9.
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= 3 -> integer__first <= element(a, [i___1]) and element(a, [i___1]) 
+          <= integer__last)
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H14:  not (loop__1__i > ix and loop__1__i < 3)
+<S>  New H15:  not loop__1__i = 3
+<S>  New C10:  loop__1__i <= 2
+<S>  New C11:  loop__1__i <= 2
+***  Proved C10:  loop__1__i <= 2
+     using hypotheses H10 & H15.
+***  Proved C11:  loop__1__i <= 2
+     using hypotheses H10 & H15.
+>>>  Restructured hypothesis H14 into:
+     >>>  H14:  loop__1__i <= ix or 3 <= loop__1__i
+>>>  Restructured hypothesis H15 into:
+     >>>  H15:  loop__1__i <> 3
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+%%%  Hypotheses H10 & H15 together imply that
+          loop__1__i < 3.
+     H10 & H15 have therefore been deleted and a new H10 added to this effect.
+---  Eliminated hypothesis H11 (true-hypothesis).
+%%%  Simplified H14 further (given H10), to give:
+     %%%  H14:  loop__1__i <= ix
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_6.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+***  Proved C3:  loop__1__i + 1 >= arrayindex__first
+     using hypothesis H9.
+***  Proved C7:  loop__1__i >= arrayindex__first
+     using hypothesis H9.
+***  Proved C8:  loop__1__i <= arrayindex__last
+     using hypothesis H10.
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= 3 -> integer__first <= element(a, [i___1]) and element(a, [i___1]) 
+          <= integer__last)
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H15:  loop__1__i < 3
+<S>  New C4:  loop__1__i <= 2
+***  Proved C1:  element(a, [loop__1__i + 1]) >= integer__first
+     using hypotheses H2, H9 & H15.
+***  Proved C2:  element(a, [loop__1__i + 1]) <= integer__last
+     using hypotheses H2, H9 & H15.
+***  Proved C4:  loop__1__i <= 2
+     using hypothesis H15.
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+---  Eliminated hypothesis H11 (true-hypothesis).
+---  Eliminated hypothesis H9 (redundant, given H12 & H14).
+---  Eliminated hypothesis H10 (redundant, given H15).
+---  Eliminated hypothesis H13 (redundant, given H14 & H15).
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_7.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+---  Hypothesis H22 has been replaced by "true".  (It is already present, as H9)
+          .
+---  Hypothesis H23 has been replaced by "true".  (It is already present, as 
+          H10).
+%%%  Simplified C4 on reading formula in, to give:
+     %%%  C4:  true
+***  Proved C3:  arrayindex__last >= arrayindex__first
+     using hypotheses H7 & H8.
+***  Proved C4:  true
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 
+          arrayindex__last -> integer__first <= element(a, [i___1]) and element(
+          a, [i___1]) <= integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+<S>  New H18:  loop__1__i >= - 1
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H15:  loop__1__i < 3
+<S>  New H19:  loop__1__i <= 2
+<S>  New H24:  loop__1__i = 3
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+***  Proved C2:  0 <= integer__last
+     using hypotheses H4 & H7.
+###  Established a contradiction [P-and-not-P] among the following hypotheses:
+          H15 & H24.
+***  PROVED VC.
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_8.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+%%%  Simplified C4 on reading formula in, to give:
+     %%%  C4:  true
+***  Proved C3:  arrayindex__last >= arrayindex__first
+     using hypotheses H7 & H8.
+***  Proved C4:  true
+>>>  Restructured hypothesis H14 into:
+     >>>  H14:  loop__1__i <= ix or arrayindex__last <= loop__1__i
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 
+          arrayindex__last -> integer__first <= element(a, [i___1]) and element(
+          a, [i___1]) <= integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H14:  loop__1__i <= ix or 3 <= loop__1__i
+<S>  New H15:  loop__1__i = 3
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+***  Proved C2:  0 <= integer__last
+     using hypotheses H4 & H7.
+---  Eliminated hypothesis H11 (true-hypothesis).
+---  Eliminated hypothesis H14 (true-disjunction).
+---  Eliminated hypothesis H9 (redundant, given H15).
+---  Eliminated hypothesis H10 (redundant, given H15).
+-S-  Eliminated hypothesis H15.
+     This was achieved by replacing all occurrences of loop__1__i by:
+          3.
+<S>  New H1:  3 <= pos or element(a, [pos]) = element(a~, [pos + 1])
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_9.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+---  Hypothesis H22 has been replaced by "true".  (It is already present, as H9)
+          .
+---  Hypothesis H23 has been replaced by "true".  (It is already present, as 
+          H10).
+%%%  Simplified H28 on reading formula in, to give:
+     %%%  H28:  true
+***  Proved C1:  arrayremovecount + 1 >= integer__first
+     using hypothesis H5.
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 
+          arrayindex__last -> integer__first <= element(a, [i___1]) and element(
+          a, [i___1]) <= integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+<S>  New H18:  loop__1__i >= - 1
+<S>  New H27:  arrayindex__last >= 0
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H15:  loop__1__i < 3
+<S>  New H19:  loop__1__i <= 2
+<S>  New H24:  loop__1__i = 3
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+<S>  New H27:  true
+###  Established a contradiction [P-and-not-P] among the following hypotheses:
+          H15 & H24.
+***  PROVED VC.
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_10.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+%%%  Simplified H19 on reading formula in, to give:
+     %%%  H19:  true
+***  Proved C1:  arrayremovecount + 1 >= integer__first
+     using hypothesis H5.
+>>>  Restructured hypothesis H14 into:
+     >>>  H14:  loop__1__i <= ix or arrayindex__last <= loop__1__i
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 
+          arrayindex__last -> integer__first <= element(a, [i___1]) and element(
+          a, [i___1]) <= integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+<S>  New H18:  arrayindex__last >= 0
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H14:  loop__1__i <= ix or 3 <= loop__1__i
+<S>  New H15:  loop__1__i = 3
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+<S>  New H18:  true
+---  Eliminated hypothesis H11 (true-hypothesis).
+---  Eliminated hypothesis H19 (true-hypothesis).
+---  Eliminated hypothesis H18 (true-hypothesis).
+---  Eliminated hypothesis H14 (true-disjunction).
+---  Eliminated hypothesis H9 (redundant, given H15).
+---  Eliminated hypothesis H10 (redundant, given H15).
+-S-  Eliminated hypothesis H15.
+     This was achieved by replacing all occurrences of loop__1__i by:
+          3.
+<S>  New H1:  3 <= pos or element(a, [pos]) = element(a~, [pos + 1])
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_11.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+---  Hypothesis H22 has been replaced by "true".  (It is already present, as H9)
+          .
+---  Hypothesis H23 has been replaced by "true".  (It is already present, as 
+          H10).
+%%%  Simplified H28 on reading formula in, to give:
+     %%%  H28:  true
+%%%  Simplified C1 on reading formula in, to give:
+     %%%  C1:  arrayindex__last <= pos or element(update(a, [arrayindex__last], 
+          0), [pos]) = element(a~, [pos + 1])
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 
+          arrayindex__last -> integer__first <= element(a, [i___1]) and element(
+          a, [i___1]) <= integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+<S>  New H18:  loop__1__i >= - 1
+<S>  New H27:  arrayindex__last >= 0
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H15:  loop__1__i < 3
+<S>  New H19:  loop__1__i <= 2
+<S>  New H24:  loop__1__i = 3
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+<S>  New H27:  true
+<S>  New C1:  3 <= pos or element(update(a, [3], 0), [pos]) = element(a~, [pos 
+          + 1])
+###  Established a contradiction [P-and-not-P] among the following hypotheses:
+          H15 & H24.
+***  PROVED VC.
+
+
+@@@@@@@@@@  VC: procedure_arrayremove_12.  @@@@@@@@@@
+%%%  Simplified H1 on reading formula in, to give:
+     %%%  H1:  loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1])
+%%%  Simplified H2 on reading formula in, to give:
+     %%%  H2:  for_all(i___1 : arrayindex, arrayindex__first <= i___1 and i___1 
+          <= arrayindex__last -> integer__first <= element(a, [i___1]) and 
+          element(a, [i___1]) <= integer__last)
+---  Hypothesis H11 has been replaced by "true".  (It is already present, as 
+          H10).
+%%%  Simplified H19 on reading formula in, to give:
+     %%%  H19:  true
+%%%  Simplified C1 on reading formula in, to give:
+     %%%  C1:  arrayindex__last <= pos or element(update(a, [arrayindex__last], 
+          0), [pos]) = element(a~, [pos + 1])
+>>>  Restructured hypothesis H14 into:
+     >>>  H14:  loop__1__i <= ix or arrayindex__last <= loop__1__i
+-S-  Applied substitution rule arrayremove_rules(9).
+     This was achieved by replacing all occurrences of arrayindex__first by:
+          0.
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 
+          arrayindex__last -> integer__first <= element(a, [i___1]) and element(
+          a, [i___1]) <= integer__last)
+<S>  New H7:  pos >= 0
+<S>  New H9:  loop__1__i >= 0
+<S>  New H12:  ix >= 0
+<S>  New H18:  arrayindex__last >= 0
+-S-  Applied substitution rule arrayremove_rules(10).
+     This was achieved by replacing all occurrences of arrayindex__last by:
+          3.
+<S>  New H8:  pos <= 3
+<S>  New H10:  loop__1__i <= 3
+<S>  New H13:  ix <= 3
+<S>  New H14:  loop__1__i <= ix or 3 <= loop__1__i
+<S>  New H15:  loop__1__i = 3
+<S>  New H2:  for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> 
+          integer__first <= element(a, [i___1]) and element(a, [i___1]) <= 
+          integer__last)
+<S>  New H18:  true
+<S>  New C1:  3 <= pos or element(update(a, [3], 0), [pos]) = element(a~, [pos 
+          + 1])
+---  Eliminated hypothesis H11 (true-hypothesis).
+---  Eliminated hypothesis H19 (true-hypothesis).
+---  Eliminated hypothesis H18 (true-hypothesis).
+---  Eliminated hypothesis H14 (true-disjunction).
+---  Eliminated hypothesis H6 (redundant, given H21).
+---  Eliminated hypothesis H9 (redundant, given H15).
+---  Eliminated hypothesis H10 (redundant, given H15).
+---  Eliminated hypothesis H20 (redundant, given H5).
+-S-  Eliminated hypothesis H15.
+     This was achieved by replacing all occurrences of loop__1__i by:
+          3.
+<S>  New H1:  3 <= pos or element(a, [pos]) = element(a~, [pos + 1])
+

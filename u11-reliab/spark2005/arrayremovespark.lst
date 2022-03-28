@@ -1,0 +1,55 @@
+          *******************************************************
+                           Listing of SPARK Text
+       SPARK95 Examiner with VC and RTC Generator Release 7.3 / 01.06
+                           Demonstration Version
+          *******************************************************
+
+
+                       DATE : 21-MAR-2007 15:01:31.03
+
+Line
+   1  -- Author: mik
+   2  
+   3  package body ArrayRemoveSpark is
+   4      
+   5      ArrayRemoveCount : Integer := 0;
+   6      
+   7      procedure ArrayRemove
+   8              (a : in out IntArray; 
+   9               pos : in Integer;
+  10               result : out Integer)
+  11      is
+  12          ix : ArrayIndex;
+  13      begin
+  14          ix := ArrayIndex(pos);
+  15          result := a(ix);
+  16          
+  17          for i in ArrayIndex loop
+  18              --# assert
+  19              --#    (Integer(i) <= pos)
+  20              --#     or 
+  21              --#    (a(ArrayIndex(pos)) = a~(ArrayIndex(pos + 1)));
+  22                      if (i > ix and i < ArrayIndex'Last) then
+  23                  a(i) := a(i + 1);
+  24              end if;
+  25          end loop;
+  26          
+  27          a(a'last) := 0;
+  28          
+  29          ArrayRemoveCount := ArrayRemoveCount + 1;
+  30      end ArrayRemove;
+
++++        Flow analysis of subprogram ArrayRemove 
+           performed: no errors found.
+
+  31      
+  32  begin
+  33      null;
+  34  end ArrayRemoveSpark;
+
++++        Flow analysis of package initialization 
+           performed: no errors found.
+
+
+
+--End of file--------------------------------------------------

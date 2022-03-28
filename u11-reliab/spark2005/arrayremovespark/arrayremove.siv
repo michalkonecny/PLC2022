@@ -1,0 +1,172 @@
+          *******************************************************
+                      Semantic Analysis of SPARK Text
+       SPARK95 Examiner with VC and RTC Generator Release 7.3 / 01.06
+                           Demonstration Version
+          *******************************************************
+
+
+      CREATED 21-MAR-2007, 15:01:30  SIMPLIFIED 21-MAR-2007, 15:04:29
+               (Simplified by SPADE Simplifier, Demo Version)
+
+                   procedure ArrayRemoveSpark.ArrayRemove
+
+
+
+
+For path(s) from start to run-time check associated with statement of line 14:
+
+procedure_arrayremove_1.
+*** true .          /* all conclusions proved */
+
+
+For path(s) from start to run-time check associated with statement of line 15:
+
+procedure_arrayremove_2.
+*** true .          /* all conclusions proved */
+
+
+For path(s) from start to assertion of line 19:
+
+procedure_arrayremove_3.
+*** true .          /* all conclusions proved */
+
+
+For path(s) from assertion of line 19 to assertion of line 19:
+
+procedure_arrayremove_4.
+H1:    loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1]) .
+H2:    for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> integer__first 
+          <= element(a, [i___1]) and element(a, [i___1]) <= integer__last) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= 0 .
+H8:    pos <= 3 .
+H9:    loop__1__i < 3 .
+H10:   ix >= 0 .
+H11:   loop__1__i > ix .
+H12:   element(a, [loop__1__i + 1]) >= integer__first .
+H13:   element(a, [loop__1__i + 1]) <= integer__last .
+H14:   loop__1__i + 1 >= arrayindex__base__first .
+H15:   loop__1__i + 1 <= arrayindex__base__last .
+       ->
+C1:    loop__1__i + 1 <= pos or element(update(a, [loop__1__i], element(a, [
+          loop__1__i + 1])), [pos]) = element(a~, [pos + 1]) .
+
+
+procedure_arrayremove_5.
+H1:    loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1]) .
+H2:    for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> integer__first 
+          <= element(a, [i___1]) and element(a, [i___1]) <= integer__last) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= 0 .
+H8:    pos <= 3 .
+H9:    loop__1__i >= 0 .
+H10:   loop__1__i < 3 .
+H11:   ix >= 0 .
+H12:   ix <= 3 .
+H13:   loop__1__i <= ix .
+       ->
+C1:    loop__1__i + 1 <= pos or element(a, [pos]) = element(a~, [pos + 1]) .
+
+
+For path(s) from assertion of line 19 to run-time check associated with 
+          statement of line 23:
+
+procedure_arrayremove_6.
+H1:    loop__1__i <= pos or element(a, [pos]) = element(a~, [pos + 1]) .
+H2:    for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> integer__first 
+          <= element(a, [i___1]) and element(a, [i___1]) <= integer__last) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= 0 .
+H8:    pos <= 3 .
+H9:    ix >= 0 .
+H10:   loop__1__i > ix .
+H11:   loop__1__i < 3 .
+       ->
+C1:    loop__1__i + 1 >= arrayindex__base__first .
+C2:    loop__1__i + 1 <= arrayindex__base__last .
+
+
+For path(s) from assertion of line 19 to run-time check associated with 
+          statement of line 27:
+
+procedure_arrayremove_7.
+*** true .   /* contradiction within hypotheses. */
+
+
+
+procedure_arrayremove_8.
+H1:    3 <= pos or element(a, [pos]) = element(a~, [pos + 1]) .
+H2:    for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> integer__first 
+          <= element(a, [i___1]) and element(a, [i___1]) <= integer__last) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= 0 .
+H8:    pos <= 3 .
+H9:    ix >= 0 .
+H10:   ix <= 3 .
+       ->
+C1:    0 >= integer__first .
+
+
+For path(s) from assertion of line 19 to run-time check associated with 
+          statement of line 29:
+
+procedure_arrayremove_9.
+*** true .   /* contradiction within hypotheses. */
+
+
+
+procedure_arrayremove_10.
+H1:    3 <= pos or element(a, [pos]) = element(a~, [pos + 1]) .
+H2:    for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> integer__first 
+          <= element(a, [i___1]) and element(a, [i___1]) <= integer__last) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    arrayremovecount <= integer__last .
+H7:    pos >= 0 .
+H8:    pos <= 3 .
+H9:    ix >= 0 .
+H10:   ix <= 3 .
+H11:   0 >= integer__first .
+H12:   0 <= integer__last .
+       ->
+C1:    arrayremovecount + 1 <= integer__last .
+
+
+For path(s) from assertion of line 19 to finish:
+
+procedure_arrayremove_11.
+*** true .   /* contradiction within hypotheses. */
+
+
+
+procedure_arrayremove_12.
+H1:    3 <= pos or element(a, [pos]) = element(a~, [pos + 1]) .
+H2:    for_all(i___1 : arrayindex, 0 <= i___1 and i___1 <= 3 -> integer__first 
+          <= element(a, [i___1]) and element(a, [i___1]) <= integer__last) .
+H3:    pos >= integer__first .
+H4:    pos <= integer__last .
+H5:    arrayremovecount >= integer__first .
+H6:    pos >= 0 .
+H7:    pos <= 3 .
+H8:    ix >= 0 .
+H9:    ix <= 3 .
+H10:   0 >= integer__first .
+H11:   0 <= integer__last .
+H12:   arrayremovecount + 1 <= integer__last .
+       ->
+C1:    3 <= pos or element(update(a, [3], 0), [pos]) = element(a~, [pos + 1]) .
+
+
